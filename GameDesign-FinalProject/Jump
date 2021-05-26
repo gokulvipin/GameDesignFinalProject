@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Jump : MonoBehaviour
+{
+    bool Ready;
+    public Move Move;
+    public Rigidbody2D BaseRB;
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Ready == true)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                Ready = false;
+                BaseRB.velocity = new Vector2(BaseRB.velocity.x, BaseRB.velocity.y + Move.speed.y);
+                gameObject.GetComponent<Rigidbody2D>().velocity= new Vector2(BaseRB.velocity.x, BaseRB.velocity.y + Move.speed.y);
+            }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Ready = true; 
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Ready = false;
+    }
+    
+}
