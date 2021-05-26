@@ -1,11 +1,8 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-// This code moves the character controller forward and sideways based on the arrow keys.
-// It also jumps when pressing space.
-// make only one call to Move or SimpleMove per frame.
-
-public class ExampleClass : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     CharacterController characterController;
 
@@ -36,7 +33,7 @@ public class ExampleClass : MonoBehaviour
         }
 
         // Apply gravity. Gravity is multiplied by deltaTime twice. This is because gravity should be applied as an acceleration (ms^-2)
-        
+
         moveDirection.y -= gravity * Time.deltaTime;
 
         // Move the controller
