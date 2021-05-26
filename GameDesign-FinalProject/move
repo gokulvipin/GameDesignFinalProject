@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Move : MonoBehaviour
+{
+    public Vector2 speed;
+    public Rigidbody2D wheel;
+    public GameObject Sprite;
+    Transform sprt;
+    // Start is called before the first frame update
+    void Start()
+    {
+        //wheel = TouchGround.GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.D) == true)
+        {
+            wheel.angularVelocity = -speed.x;
+            Sprite.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else 
+        { wheel.angularVelocity = 0; }
+        if (Input.GetKey(KeyCode.A) == true)
+        {
+            wheel.angularVelocity = wheel.angularVelocity+speed.x;
+            Sprite.transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+}
