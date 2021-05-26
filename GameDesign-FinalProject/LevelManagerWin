@@ -1,0 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class LevelManagerWin : MonoBehaviour
+{
+    public void LoadLevel(string level)
+    {
+        SceneManager.LoadScene(level);
+        Debug.Log("Attempting to load " + level);
+    }
+}
