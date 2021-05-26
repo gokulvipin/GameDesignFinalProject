@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FiringComponent : MonoBehaviour
+{
+    public Vector3 Barrel;
+    public bool Direct;
+    // Start is called before the first frame update
+    void Start()
+    {
+        Direct = false;  
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.A))
+            Direct = true;
+        if (Input.GetKey(KeyCode.D))
+            Direct = false;
+        if (Direct == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                this.gameObject.GetComponentInChildren<Rigidbody2D>().velocity = new Vector2(-4f, 10f);
+            }
+            Barrel = this.transform.position;
+        }
+        if (Direct == false)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                this.gameObject.GetComponentInChildren<Rigidbody2D>().velocity = new Vector2(4f, 10f);
+            }
+            Barrel = this.transform.position;
+        }
+    }
+}
